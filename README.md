@@ -15,13 +15,13 @@
 php artisan server
 ```
 
-## Lister les routes
+## Lister les routes configurées dans routes/web.php
 
 ```
 php artisan route:list
 ```
 
-## Créer un fichier de migration pour la database
+## Créer un fichier de migration pour la database dans database/migrations
 
 ```
 php artisan make:migration CreatePostTable
@@ -33,8 +33,34 @@ php artisan make:migration CreatePostTable
 php artisan migrate
 ```
 
-## Créer un model
+## Créer un model dans app/Models
 
 ```
 php artisan make:model Post
+```
+
+## Créer un classe seeder dans database/seeders
+
+```
+php artisan make:seeder PostSeeder
+```
+
+## Tuto pour générer un slug unique
+
+https://www.tutsmake.com/laravel-10-create-unique-slug-tutorial-example/
+
+## Pour la génération d'un slug unique
+
+```
+composer require cviebrock/eloquent-sluggable
+```
+
+```
+php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
+```
+
+## Lancer le seed de la db
+
+```
+php artisan db:seed
 ```
