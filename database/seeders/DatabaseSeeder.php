@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
+        // On peut lancer nos seeder de chaque model successivement
         $this->call([
             PostSeeder::class
         ]);

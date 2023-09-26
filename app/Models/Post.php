@@ -9,6 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
+    // Ajouter le trait Sluggable
     use HasFactory, Sluggable;
 
     protected $fillable = [
@@ -17,6 +18,7 @@ class Post extends Model
         'content'
     ];
 
+    // C'est ici qu'on défini le(ou les) slug
     public function sluggable(): array {
         return [
             'slug' => [
