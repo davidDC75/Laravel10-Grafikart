@@ -33,3 +33,8 @@ php artisan make:migration CreatePostTable
 php artisan migrate
 ```
 
+## Créer un model
+
+```
+php artisan make:model Post
+```

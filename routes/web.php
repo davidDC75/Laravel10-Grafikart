@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +19,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Création d'un groupe préfixé par /blog et blog.
 Route::prefix('/blog')->name('blog.')->group(function () {
+
+    // Route /blog blog.index
     Route::get('/', function (Request $request) {
-        return [
-            "link" => \route('blog.show', ['slug'=>'article','id'=>13])
-        ];
+
+        // Création d'un premier post
+        $post = new Post();
+        $post->title = 'Mon premier article';
+        $post->slug = 'mon-premier-article';
+        $post->content = 'Mon contenu';
+        $post->save();
+
+        return $post;
+        //return [
+        //    "link" => \route('blog.show', ['slug'=>'article','id'=>13])
+        //];
     })->name('index');
 
+    // Route /blog/{slug}-{id} blog.show
     Route::get('/{slug}-{id}', function (string $slug, string $id, Request $request) {
         return [
             "slug" => $slug,
