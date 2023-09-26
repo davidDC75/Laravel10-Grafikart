@@ -20,3 +20,16 @@ php artisan server
 ```
 php artisan route:list
 ```
+
+## Créer un fichier de migration pour la database
+
+```
+php artisan make:migration CreatePostTable
+```
+
+## Faire la migration
+
+```
+php artisan migrate
+```
+
