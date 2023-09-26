@@ -7,4 +7,16 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Tutoriel grafikart sur laravel 10
+# Tutoriel grafikart sur laravel 10
+
+## Utiliser le serveur web
+
+```
+php artisan server
+```
+
+## Lister les routes
+
+```
+php artisan route:list
+```
