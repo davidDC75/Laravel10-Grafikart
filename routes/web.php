@@ -26,13 +26,14 @@ Route::prefix('/blog')->name('blog.')->group(function () {
     Route::get('/', function (Request $request) {
 
         // Création d'un premier post
-        $post = new Post();
-        $post->title = 'Mon second article';
-        $post->slug = 'mon-second-article';
-        $post->content = 'Mon second contenu';
-        $post->save();
+        //$post = new Post();
+        //$post->title = 'Mon second article';
+        //$post->slug = 'mon-second-article';
+        //$post->content = 'Mon second contenu';
+        //$post->save();
 
-        return $post;
+        return Post::all();
+
         //return [
         //    "link" => \route('blog.show', ['slug'=>'article','id'=>13])
         //];
