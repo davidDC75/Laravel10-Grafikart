@@ -27,9 +27,9 @@ Route::prefix('/blog')->name('blog.')->group(function () {
 
         // Création d'un premier post
         $post = new Post();
-        $post->title = 'Mon premier article';
-        $post->slug = 'mon-premier-article';
-        $post->content = 'Mon contenu';
+        $post->title = 'Mon second article';
+        $post->slug = 'mon-second-article';
+        $post->content = 'Mon second contenu';
         $post->save();
 
         return $post;
