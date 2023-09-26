@@ -9,6 +9,8 @@
 
 # Tutoriel grafikart sur laravel 10
 
+[Dov Laravel: Query Builder](https://laravel.com/docs/10.x/queries)
+
 ## Utiliser le serveur web
 
 ```
@@ -64,3 +66,5 @@ php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvid
 ```
 php artisan db:seed
 ```
+
+# ACTUELLEMENT VIDEO 5
