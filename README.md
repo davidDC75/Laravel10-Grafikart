@@ -10,6 +10,7 @@
 # Tutoriel grafikart sur laravel 10
 
 [Doc Laravel: Eloquent ORM](https://laravel.com/docs/10.x/eloquent)
+[Doc Laravel: Database seeding](https://laravel.com/docs/10.x/seeding)
 [Doc Laravel: Query Builder](https://laravel.com/docs/10.x/queries)
 [Doc Laravel: Blade](https://laravel.com/docs/10.x/blade)
 
@@ -75,4 +76,4 @@ php artisan db:seed
 php artisan make:controller BlogController
 ```
 
-# ACTUELLEMENT VIDEO 5
+# ACTUELLEMENT VIDEO 7
