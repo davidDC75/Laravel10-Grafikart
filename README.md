@@ -9,12 +9,14 @@
 
 # Tutoriel grafikart sur laravel 10
 
-[Dov Laravel: Query Builder](https://laravel.com/docs/10.x/queries)
+[Doc Laravel: Eloquent ORM](https://laravel.com/docs/10.x/eloquent)
+[Doc Laravel: Query Builder](https://laravel.com/docs/10.x/queries)
+[Doc Laravel: Blade](https://laravel.com/docs/10.x/blade)
 
 ## Utiliser le serveur web
 
 ```
-php artisan server
+php artisan serve
 ```
 
 ## Lister les routes configurées dans routes/web.php
@@ -35,13 +37,13 @@ php artisan make:migration CreatePostTable
 php artisan migrate
 ```
 
-## Créer un model dans app/Models
+## Créer un model dans app/Models (exemple model Post)
 
 ```
 php artisan make:model Post
 ```
 
-## Créer un classe seeder dans database/seeders
+## Créer un classe seeder dans database/seeders (exemple seeder pour les Post)
 
 ```
 php artisan make:seeder PostSeeder
@@ -49,7 +51,7 @@ php artisan make:seeder PostSeeder
 
 ## Tuto pour générer un slug unique
 
-https://www.tutsmake.com/laravel-10-create-unique-slug-tutorial-example/
+[Tutoriel d'installation et d'utilisation](https://www.tutsmake.com/laravel-10-create-unique-slug-tutorial-example/)
 
 ## Pour la génération d'un slug unique
 
@@ -65,6 +67,12 @@ php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvid
 
 ```
 php artisan db:seed
+```
+
+## Créer un controller
+
+```
+php artisan make:controller BlogController
 ```
 
 # ACTUELLEMENT VIDEO 5
