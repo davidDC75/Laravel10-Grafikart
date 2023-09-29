@@ -93,6 +93,14 @@ php artisan make:seeder PostSeeder
 
 ## Pour la génération d'un slug unique
 
+### Natif Laravel
+
+```
+\Str::slug();
+```
+
+### En utilisant une lib externe
+
 ```
 composer require cviebrock/eloquent-sluggable
 ```

@@ -30,7 +30,12 @@ Route::prefix('/blog')->name('blog.')->controller(BlogController::class)->group(
     // Route /blog/new blog.create
     Route::get('/new','create')->name('create');
 
+    // Route pour le traitement du formulaire de création
+    // /blog/new blog.new
     Route::post('/new', 'store')->name('new');
+
+    Route::get('/{post}/edit','edit')->name('edit');
+    Route::patch('/{post}/edit','update')->name('update');
 
     // Route /blog/{slug}-{id} blog.show
     Route::get('/{slug}-{post}', 'show')->where([
