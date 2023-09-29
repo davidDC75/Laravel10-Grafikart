@@ -7,7 +7,7 @@
     @foreach($posts as $post)
         <article class="card">
             <h5 class="card-title">{{ $post->title }}</h5>
-            <a href="{{ route('blog.show', ['slug' => $post->slug, 'id' => $post->id]) }}" class="btn btn-primary">Lire la suite</a>
+            <a href="{{ route('blog.show', ['slug' => $post->slug, 'post' => $post->id]) }}" class="btn btn-primary">Lire la suite</a>
         </article>
     @endforeach
 

@@ -10,11 +10,19 @@
 # Tutoriel grafikart sur laravel 10
 
 [Doc Laravel: Eloquent ORM](https://laravel.com/docs/10.x/eloquent)
+
 [Doc Laravel: Database seeding](https://laravel.com/docs/10.x/seeding)
+
 [Doc Laravel: Query Builder](https://laravel.com/docs/10.x/queries)
+
 [Doc Laravel: Blade](https://laravel.com/docs/10.x/blade)
+
 [Doc Laravel: Validation](https://laravel.com/docs/10.x/validation#main-content)
+
 [Doc Laravel: String](https://laravel.com/docs/10.x/strings#main-content)
+
+[Doc Laravel: Route Model Binding](https://laravel.com/docs/10.x/folio#route-model-binding)
+
 
 ## Utiliser le serveur web
 
