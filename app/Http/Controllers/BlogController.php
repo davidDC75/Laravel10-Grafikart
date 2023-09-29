@@ -22,6 +22,7 @@ class BlogController extends Controller
     public function show(string $slug, Post $post, Request $request): RedirectResponse | View {
         // On récupère le post avec son id
         //$post = Post::findOrFail($post);
+
         // Si il y a une erreur sur le slug dans l'url alors on redirige
         // vers la bonne url
         if ($post->slug !== $slug) {

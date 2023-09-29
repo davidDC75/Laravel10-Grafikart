@@ -23,6 +23,33 @@
 
 [Doc Laravel: Route Model Binding](https://laravel.com/docs/10.x/folio#route-model-binding)
 
+## Installer la debug bar de développement
+
+[barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
+
+## Installation Laravel IDE Helper
+
+Pour l'auto-complètion des Models avec l'IDE. Permet de récupérer des propriétés et des méthodes que l'IDE ne trouve pas avec PhPDocs.
+
+[barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
+
+```
+php artisan ide-helpers:models
+```
+
+```
+php artisan ide-helper:models -M
+```
+
+```
+php artisan ide-helper:generate
+```
+
+Pour PhPstorm :
+
+```
+php artisan ide-helper:meta
+```
 
 ## Utiliser le serveur web
 

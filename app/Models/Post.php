@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 
+/**
+ * @mixin IdeHelperPost
+ */
 class Post extends Model
 {
     // Ajouter le trait Sluggable
