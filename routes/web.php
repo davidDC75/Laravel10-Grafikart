@@ -27,6 +27,11 @@ Route::prefix('/blog')->name('blog.')->controller(BlogController::class)->group(
     // Route /blog blog.index
     Route::get('/','index')->name('index');
 
+    // Route /blog/new blog.create
+    Route::get('/new','create')->name('create');
+
+    Route::post('/new', 'store')->name('new');
+
     // Route /blog/{slug}-{id} blog.show
     Route::get('/{slug}-{post}', 'show')->where([
         'post' => '[0-9]+',

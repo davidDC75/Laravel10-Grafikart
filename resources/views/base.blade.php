@@ -28,6 +28,10 @@ $routeName=request()->route()->getName();
                     <li class="nav-item">
                         <a class="nav-link" href="https://laravel.com/docs/10.x">Laravel Documentation</a>
                     </li>
+                    <li class="nav-item">
+                        <a @class(['nav-link', 'active' =>  $routeName === 'blog.create'])
+                            href="{{ route('blog.create') }}">Nouveau</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
@@ -51,6 +55,11 @@ $routeName=request()->route()->getName();
         </div>
     </nav>
     <div class="container">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         @yield('content')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

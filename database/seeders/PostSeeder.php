@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Post;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,7 +23,7 @@ class PostSeeder extends Seeder
             $post=new Post();
             $title=($i+1)." Article de ".$faker->name();
             $post->title=$title;
-            $post->slug=SlugService::createSlug(Post::class,'slug',$title);
+            $post->slug=\Str::slug($title);
             $content='';
             for ($j=0;$j<30;$j++) {
                 $content.=(' '.$faker->text());
