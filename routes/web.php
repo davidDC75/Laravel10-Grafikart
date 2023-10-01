@@ -34,7 +34,9 @@ Route::prefix('/blog')->name('blog.')->controller(BlogController::class)->group(
     // /blog/new blog.new
     Route::post('/new', 'store')->name('new');
 
+    // Route pour le formulaire d'édition
     Route::get('/{post}/edit','edit')->name('edit');
+    // Route pour mettre à jour le post depuis le formulaire d'édition
     Route::patch('/{post}/edit','update')->name('update');
 
     // Route /blog/{slug}-{id} blog.show
