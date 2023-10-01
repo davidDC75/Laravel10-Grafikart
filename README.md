@@ -34,7 +34,7 @@ Pour l'auto-complètion des Models avec l'IDE. Permet de récupérer des propri�
 [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 
 ```
-php artisan ide-helpers:models
+php artisan ide-helper:models
 ```
 
 ```

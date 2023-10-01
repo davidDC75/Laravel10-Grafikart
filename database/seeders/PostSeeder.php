@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PostSeeder extends Seeder
 {
@@ -20,6 +22,9 @@ class PostSeeder extends Seeder
         $faker=\Faker\Factory::create('fr_FR');
 
         for ($i=0;$i<$nbPostToCreate;$i++) {
+
+            $category = DB::table('categories')->inRandomOrder()->first();
+
             $post=new Post();
             $title=($i+1)." Article de ".$faker->name();
             $post->title=$title;
@@ -30,6 +35,7 @@ class PostSeeder extends Seeder
             }
             $content=($i+1).$content;
             $post->content=$content;
+            $post->category_id=$category->id;
             $post->save();
         }
 

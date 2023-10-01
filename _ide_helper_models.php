@@ -12,6 +12,26 @@
 
 namespace App\Models{
 /**
+ * App\Models\Category
+ *
+ * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperCategory {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Post
  *
  * @property int $id
@@ -20,17 +40,17 @@ namespace App\Models{
  * @property string $content
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|Post findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @property int|null $category_id
  * @method static \Illuminate\Database\Eloquent\Builder|Post newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Post newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Post query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereContent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @mixin \Eloquent
  */
 	class IdeHelperPost {}
