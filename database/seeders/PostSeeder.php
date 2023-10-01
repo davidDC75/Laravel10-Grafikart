@@ -22,7 +22,7 @@ class PostSeeder extends Seeder
         $faker=\Faker\Factory::create('fr_FR');
 
         for ($i=0;$i<$nbPostToCreate;$i++) {
-
+            // Sélectionne une catégorie au hasard
             $category = DB::table('categories')->inRandomOrder()->first();
 
             $post=new Post();
@@ -36,7 +36,21 @@ class PostSeeder extends Seeder
             $content=($i+1).$content;
             $post->content=$content;
             $post->category_id=$category->id;
+            // Ajoute des tags au hasard
+            $tblTags=[];
+            $nbTags=rand(1,6);
+            for ($n=0;$n<$nbTags;$n++) {
+                $exit=false;
+                do {
+                    $tag = DB::table('tags')->inRandomOrder()->first();
+                    if (array_search($tag->id,$tblTags)==false) {
+                        $tblTags[] = $tag->id;
+                        $exit=true;
+                    }
+                } while (!$exit);
+            }
             $post->save();
+            $post->tags()->sync($tblTags);
         }
 
     }

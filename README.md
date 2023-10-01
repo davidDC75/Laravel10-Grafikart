@@ -128,4 +128,4 @@ php artisan make:controller BlogController
 php artisan make:request BlogFilterRequest
 ```
 
-# ACTUELLEMENT VIDEO 7
+# ACTUELLEMENT VIDEO 12

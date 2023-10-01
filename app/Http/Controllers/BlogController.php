@@ -6,6 +6,7 @@ use App\Http\Requests\BlogFormPostRequest;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 //use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -20,13 +21,16 @@ class BlogController extends Controller
         //dd(session()->all());
         $post = new Post();
         return view('blog.create',[
-            'post' => $post
+            'post' => $post,
+            'categories' => Category::select('id','name')->get(),
+            'tags' => Tag::select('id','name')->get()
         ]);
     }
 
     // Enregistre le nouveau post depuis le formualire de création
     public function store(BlogFormPostRequest $request) {
         $post = Post::create($request->validated());
+        $post->tags()->sync($request->validated('tags'));
         return redirect()
             ->route('blog.show', ['slug' => $post->slug, 'post' => $post->id])
             ->with('success','L\'article a bien été sauvegardé');
@@ -34,28 +38,49 @@ class BlogController extends Controller
 
     // Affiche le formulaire d'édition de post
     public function edit(Post $post) {
+
         return view('blog.edit', [
-            'post' => $post
+            'post' => $post,
+            'categories' => Category::select('id','name')->get(),
+            'tags' => Tag::select('id','name')->get()
         ]);
     }
 
     // Met à jour le post depuis le formulaire d'édition
     public function update(Post $post, BlogFormPostRequest $request) {
+
         $post->update($request->validated());
+        $post->tags()->sync($request->validated('tags'));
         return redirect()
             ->route('blog.show', ['slug' => $post->slug, 'post' => $post->id])
             ->with('success','L\'article a bien été mise à jour');
     }
 
     public function index(): View {
-        $category = Category::find(1);
-        $post = Post::find(185);
-        $post->category()->associate($category);
-        $post->save();
 
-        //dd($category);
+        // Supprime le tag du post
+        //$tags = $post->tags()->detach(2);
+        // Ajoute le tag au post
+        //$tags = $post->tags()->attach(2);
+
+        // Supprime toutes les relations
+        //$tags=$post->tags()->sync([]);
+        // Ajoute les relations avec les tag id
+        //$tags=$post->tags()->sync([1,2]);
+
+        //$posts=Post::has('tags','>=',1)->get();
+
+        //$tags = $post->tags;
+        //$tags = $post->tags()->where('name','Tag 1')->get();
+        /* Crée des tags
+        $post->tags()->createMany([[
+            'name' => 'Tag 1'
+            ], [
+                'name' => 'Tag 2'
+        ]]);
+        */
         return view('blog.index',[
-            'posts' => Post::paginate(10,['id','title','slug'])
+            'posts' => Post::with('tags','category')->paginate(10)
         ]);
     }
 

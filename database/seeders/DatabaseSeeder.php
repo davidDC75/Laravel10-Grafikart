@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         // On peut lancer nos seeder de chaque model successivement
         $this->call([
+            TagSeeder::class,
             CategorySeeder::class,
             PostSeeder::class
         ]);
