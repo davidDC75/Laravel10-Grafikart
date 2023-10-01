@@ -14,6 +14,7 @@ use Illuminate\View\View;
 
 class BlogController extends Controller
 {
+    // Affiche le formulaire de création
     public function create(): View {
         //dd(session()->all());
         $post = new Post();
@@ -22,6 +23,7 @@ class BlogController extends Controller
         ]);
     }
 
+    // Enregistre le nouveau post depuis le formualire de création
     public function store(BlogFormPostRequest $request) {
         $post = Post::create($request->validated());
         return redirect()
@@ -29,12 +31,14 @@ class BlogController extends Controller
             ->with('success','L\'article a bien été sauvegardé');
     }
 
+    // Affiche le formulaire d'édition de post
     public function edit(Post $post) {
         return view('blog.edit', [
             'post' => $post
         ]);
     }
 
+    // Met à jour le post depuis le formulaire d'édition
     public function update(Post $post, BlogFormPostRequest $request) {
         $post->update($request->validated());
         return redirect()
