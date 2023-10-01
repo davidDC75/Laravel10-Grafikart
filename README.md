@@ -23,6 +23,8 @@
 
 [Doc Laravel: Route Model Binding](https://laravel.com/docs/10.x/folio#route-model-binding)
 
+[Doc Laravel: Eloquent: Relationships](https://laravel.com/docs/10.x/eloquent-relationships#main-content)
+
 ## Installer la debug bar de développement
 
 [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BlogFormPostRequest;
 
+use App\Models\Category;
 use App\Models\Post;
 //use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
@@ -47,6 +48,12 @@ class BlogController extends Controller
     }
 
     public function index(): View {
+        $category = Category::find(1);
+        $post = Post::find(185);
+        $post->category()->associate($category);
+        $post->save();
+
+        //dd($category);
         return view('blog.index',[
             'posts' => Post::paginate(10,['id','title','slug'])
         ]);
