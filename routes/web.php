@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -21,6 +22,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::name('auth.')->controller(AuthController::class)->group(function () {
+    Route::get('/login', 'login')->name('login');
+    Route::post('/login', 'doLogin')->name('login');
+    Route::delete('/logout', 'logout')->name('logout');
+});
+
 // Création d'un groupe préfixé par /blog et blog.
 Route::prefix('/blog')->name('blog.')->controller(BlogController::class)->group(function () {
 
@@ -28,16 +35,16 @@ Route::prefix('/blog')->name('blog.')->controller(BlogController::class)->group(
     Route::get('/','index')->name('index');
 
     // Route /blog/new blog.create
-    Route::get('/new','create')->name('create');
+    Route::get('/new','create')->name('create')->middleware('auth');
 
     // Route pour le traitement du formulaire de création
     // /blog/new blog.new
-    Route::post('/new', 'store')->name('new');
+    Route::post('/new', 'store')->name('new')->middleware('auth');
 
     // Route pour le formulaire d'édition
-    Route::get('/{post}/edit','edit')->name('edit');
+    Route::get('/{post}/edit','edit')->name('edit')->middleware('auth');
     // Route pour mettre à jour le post depuis le formulaire d'édition
-    Route::patch('/{post}/edit','update')->name('update');
+    Route::patch('/{post}/edit','update')->name('update')->middleware('auth');
 
     // Route /blog/{slug}-{id} blog.show
     Route::get('/{slug}-{post}', 'show')->where([

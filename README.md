@@ -25,6 +25,9 @@
 
 [Doc Laravel: Eloquent: Relationships](https://laravel.com/docs/10.x/eloquent-relationships#main-content)
 
+[Doc Laravel: Authentication](https://laravel.com/docs/10.x/authentication#main-content)
+
+
 ## Installer la debug bar de développement
 
 [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
@@ -128,4 +131,4 @@ php artisan make:controller BlogController
 php artisan make:request BlogFilterRequest
 ```
 
-# ACTUELLEMENT VIDEO 12
+# ACTUELLEMENT VIDEO 13

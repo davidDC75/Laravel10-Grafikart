@@ -8,10 +8,13 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 //use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Validator;
 //use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class BlogController extends Controller
@@ -57,7 +60,15 @@ class BlogController extends Controller
     }
 
     public function index(): View {
-
+    /*
+     * Crée un utilisateur
+        User::create([
+            'name' => 'david',
+            'email' => 'segphault@gmail.com',
+            'password' => Hash::make('seg')
+        ]);
+    */
+        //dd(Auth::user());
         // Supprime le tag du post
         //$tags = $post->tags()->detach(2);
         // Ajoute le tag au post
