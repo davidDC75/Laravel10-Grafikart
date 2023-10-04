@@ -19,6 +19,11 @@
                     @endforeach
                 @endif
             </p>
+            <p>
+                @if($post->image)
+                    <img src="{{ $post->imageUrl() }}" alt="image {{ $post->id }}">
+                @endif
+            </p>
             <div class="btn-group btn-group-lg w-50 mt-1 px-2 py-2" role="group" aria-label="Action">
                 <a href="{{ route('blog.show', ['slug' => $post->slug, 'post' => $post->id]) }}" class="btn btn-outline-primary">Lire la suite</a>
                 <a href="{{ route('blog.edit', ['post' => $post->id]) }}" class="btn btn-outline-primary">Editer</a>

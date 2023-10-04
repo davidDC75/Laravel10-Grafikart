@@ -29,6 +29,7 @@ class PostSeeder extends Seeder
             $title=($i+1)." Article de ".$faker->name();
             $post->title=$title;
             $post->slug=\Str::slug($title);
+            $post->image=null;
             $content='';
             for ($j=0;$j<30;$j++) {
                 $content.=(' '.$faker->text());

@@ -27,6 +27,8 @@
 
 [Doc Laravel: Authentication](https://laravel.com/docs/10.x/authentication#main-content)
 
+[Doc Laravel: File Storage](https://laravel.com/docs/10.x/filesystem#main-content)
+
 
 ## Installer la debug bar de développement
 
@@ -127,8 +129,16 @@ php artisan make:controller BlogController
 ```
 
 ## Créer une request
+
 ```
 php artisan make:request BlogFilterRequest
 ```
 
-# ACTUELLEMENT VIDEO 13
+## Crée le lien symbolique entre le dossier storage/app/public et /public
+
+```
+php artisan storage:link
+```
+
+
+# ACTUELLEMENT VIDEO 14

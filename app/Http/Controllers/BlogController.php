@@ -13,8 +13,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Validator;
 //use Illuminate\Validation\Rule;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class BlogController extends Controller
@@ -32,7 +34,7 @@ class BlogController extends Controller
 
     // Enregistre le nouveau post depuis le formualire de création
     public function store(BlogFormPostRequest $request) {
-        $post = Post::create($request->validated());
+        $post = Post::create($this->extractData(new Post(),$request));
         $post->tags()->sync($request->validated('tags'));
         return redirect()
             ->route('blog.show', ['slug' => $post->slug, 'post' => $post->id])
@@ -51,14 +53,26 @@ class BlogController extends Controller
 
     // Met à jour le post depuis le formulaire d'édition
     public function update(Post $post, BlogFormPostRequest $request) {
-
-        $post->update($request->validated());
+        $post->update($this->extractData($post,$request));
         $post->tags()->sync($request->validated('tags'));
         return redirect()
             ->route('blog.show', ['slug' => $post->slug, 'post' => $post->id])
             ->with('success','L\'article a bien été mise à jour');
     }
 
+    private function extractData(Post $post, BlogFormPostRequest $request) {
+        $data=$request->validated();
+        /** @var UploadedFile|null $image */
+        $image=$request->validated('image');
+        if ($image===null || $image->getError()) {
+            return $data;
+        }
+        if ($post->image) {
+            Storage::disk('public')->delete($post->image);
+        }
+        $data['image']=$image->store('blog','public');
+        return $data;
+    }
     public function index(): View {
     /*
      * Crée un utilisateur

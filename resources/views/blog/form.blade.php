@@ -1,4 +1,4 @@
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         @csrf
         @method($post->id ? "PATCH" : "Post")
         <div class="form-group">
@@ -37,6 +37,14 @@
         @php
             $tagsIds=$post->tags()->pluck('id');
         @endphp
+
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control" name="image" id="image">
+            @error("image")
+            {{ $message }}
+            @enderror
+        </div>
 
         <div class="form-group">
             <label for="tag">Tags</label>
